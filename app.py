@@ -26,9 +26,9 @@ def load_data():
     df = pd.read_csv("coffee_cleaned.csv")
     df["Revenue"] = df["transaction_qty"] * df["unit_price"]
     df["transaction_time"] = pd.to_datetime(
-        df["transaction_time"],
-        format="%H:%M:%S"
-    )
+    df["transaction_time"],
+    errors="coerce"
+)
     df["Hour"] = df["transaction_time"].dt.hour
     return df
 
